@@ -42,6 +42,11 @@ export default {
         {name:'订单管理',path:'/'},
       ]
     }
+  },
+  created:function () {
+    this.$axios.get('list_user',{}).then( res => {
+      console.log(res)
+    })
   }
 }
 </script>
