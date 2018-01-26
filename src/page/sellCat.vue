@@ -3,10 +3,7 @@
     <el-row>
       <div class="seller-info">
         <div class="title">
-          出售说明
-        </div>
-        <div class="text">
-          凯蒂＃320809将被放置通过。基蒂拍卖会价格上涨或下跌，当时间到期，价格停止移动。您必须取消拍卖才能结束，此时您的猫咪会被送回垃圾箱
+          页面开发中。。。。
         </div>
       </div>
     </el-row>

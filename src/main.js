@@ -4,6 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router.js'
 import axios from 'axios'
+import Vuex from 'vuex'     //状态管理工具
+import stores from './vuex/store'  //引入vuex的状态仓库
+//兼容ie
+import "babel-polyfill";
 
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
@@ -42,10 +46,11 @@ axios.interceptors.request.use(function (config) {
 
 Vue.prototype.$axios = axios;
 
-
+Vue.use(Vuex)
 Vue.use(ElementUI)
 Vue.use(constantsMap)
 Vue.use(vueUtil)
+
 
 Vue.config.productionTip = true
 
@@ -53,6 +58,7 @@ Vue.config.productionTip = true
 new Vue({
   el: '#app',
   router,
+  store:stores,
   template: '<App/>',
   components: {App}
 })
