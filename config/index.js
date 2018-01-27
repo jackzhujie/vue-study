@@ -11,7 +11,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {                          //跨域配置，一般前后端都是分离的，所以前端开发的时候需要配置跨域，这里的意思是请求以/dev开头的，则会代理到target里面配置的地址，下面的地址是我自己的一个服务器地址
     '/dev': {                              //项目上线后，前端一般是跟服务器在同一个域名端口下，就不存在跨域了，如果上线后也是不同的环境，可以考虑让后台把origin设置为*，允许所有请求
-      target: 'http://localhost:8081', //服务器
+      target: 'http://67.218.157.95:8081', //服务器
       changeOrigin: true,
       pathRewrite:{
         '^/dev':''

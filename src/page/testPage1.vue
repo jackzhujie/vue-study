@@ -3,7 +3,7 @@
     <el-row>
       <div class="seller-info">
         <div class="title">
-          页面开发中。。。。
+          测试页面1
         </div>
       </div>
     </el-row>
@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    name: "sellCat",
+    name: "testPage",
     data() {
       return {
         form: {}

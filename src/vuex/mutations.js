@@ -1,6 +1,6 @@
 const state = {
   isLoading:false,
-  menuPosition:'2-0',
+  menuPosition:'1-0',
 }
 
 const mutations = {
