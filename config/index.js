@@ -44,10 +44,10 @@ module.exports = {
 
   build: {
     // Template for index.html 主页
-    index: path.resolve(__dirname, '../../static/index.html'),
+    index: path.resolve(__dirname, '../../nodetest/static/index.html'),
 
     // Paths，这里可以修改打包之后的路径
-    assetsRoot: path.resolve(__dirname, '../../static'),
+    assetsRoot: path.resolve(__dirname, '../../nodetest/static'),
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
 

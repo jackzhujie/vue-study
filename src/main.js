@@ -40,7 +40,7 @@ axios.interceptors.request.use(function (config) {
   //请求之前获取cookie，查看是否登录
   if(config.url.indexOf('/login') < 0 && !commonUtil.getCookie('login')){
     // Vue.showAlert('未登录，已经跳转到首页')
-    router.push({name:'test2'})
+    router.push('/login')
     return
   }
   stores.commit('setShowLoading',true)
@@ -73,9 +73,9 @@ axios.interceptors.response.use((response) => {
 //路由拦截
 router.beforeEach((to, from, next) => {              //路由跳转时，添加进度条
   //处理页面位置
-  if(to.name != 'test2' && !commonUtil.getCookie('login')){
+  if(to.name != 'login' && !commonUtil.getCookie('login')){
     // Vue.showAlert('未登录，已经调整到首页')
-    router.push({name:'test2'})
+    router.push('/login')
     return
   }
   NProgress.start();    //顶部进度条
