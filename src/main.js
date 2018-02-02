@@ -6,6 +6,12 @@ import router from './router.js'
 import axios from 'axios'
 import Vuex from 'vuex'     //状态管理工具
 import stores from './vuex/store'  //引入vuex的状态仓库
+import NProgress from 'nprogress'    //页面顶部加载条和样式
+import 'nprogress/nprogress.css'
+
+
+const commonUtil = require('./assets/util/common')
+
 //兼容ie
 import "babel-polyfill";
 
@@ -24,9 +30,20 @@ if (process.env.NODE_ENV == 'development') {      //这里配置项目开发和�
   baseURL = ''
 }
 
+// 简单配置
+NProgress.inc(0.2)
+NProgress.configure({ easing: 'ease', speed: 500, showSpinner: true })
+
 axios.defaults.baseURL = baseURL
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
+  //请求之前获取cookie，查看是否登录
+  if(config.url.indexOf('/login') < 0 && !commonUtil.getCookie('login')){
+    // Vue.showAlert('未登录，已经跳转到首页')
+    router.push({name:'test2'})
+    return
+  }
+  stores.commit('setShowLoading',true)
   if (config.method == 'post') {   //post请求进行添加分页参数
     if (!config.data) {
       config.data = {}
@@ -40,9 +57,36 @@ axios.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
   return config;
 }, function (error) {
+  stores.commit('setShowLoading',false)
   // 对请求错误做些什么
   return Promise.reject(error);
 });
+
+axios.interceptors.response.use((response) => {
+  stores.commit('setShowLoading',false)
+  return response
+},(err)=>{
+  stores.commit('setShowLoading',false)
+  return Promise.reject(err)
+});
+
+//路由拦截
+router.beforeEach((to, from, next) => {              //路由跳转时，添加进度条
+  //处理页面位置
+  if(to.name != 'test2' && !commonUtil.getCookie('login')){
+    // Vue.showAlert('未登录，已经调整到首页')
+    router.push({name:'test2'})
+    return
+  }
+  NProgress.start();    //顶部进度条
+  next()
+});
+
+router.afterEach(transition => {
+  NProgress.done();
+});
+
+
 
 Vue.prototype.$axios = axios;
 
@@ -55,7 +99,7 @@ Vue.use(vueUtil)
 Vue.config.productionTip = true
 
 /* eslint-disable no-new */
-new Vue({
+const vm = new Vue({
   el: '#app',
   router,
   store:stores,

@@ -1,5 +1,5 @@
 <template>
-  <div id="app">                   <!--所有的东西都挂载在id为app的节点下-->
+  <div id="app" v-loading.fullscreen.lock="isLoading">                   <!--所有的东西都挂载在id为app的节点下-->
    <el-row>
      <el-col :span="4">
        <!--菜单-->
@@ -76,6 +76,9 @@ export default {
   computed:{
     activeIndex:function () {              //从vuex获取数据
       return this.$store.state.menuPosition
+    },
+    isLoading:function () {
+      return this.$store.state.isLoading
     }
   },
   created:function () {

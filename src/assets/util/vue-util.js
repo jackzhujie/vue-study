@@ -7,6 +7,7 @@ export default {
     }
     Vue.prototype.$get = function (url,parmas,successCallBack,errorCallBack) {
       const defaultErrorCallBack = err => {
+        console.log(err)
         this.showAlert(err,'error')
       }
       if(!errorCallBack){
