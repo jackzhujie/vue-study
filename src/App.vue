@@ -30,6 +30,7 @@
 <script>
 import test1 from '@/page/testPage1.vue'
 import test2 from '@/page/testPage2.vue'
+import vueBase from '@/page/vueBase.vue'
 export default {
   name: 'app',
   data(){
@@ -45,6 +46,11 @@ export default {
           path: '/test2',
           name: 'test2',
           component: test2
+        },
+        {
+          path: '/baseStudy',
+          name: '基础学习',
+          component: vueBase
         }
       ]
     }
@@ -76,6 +82,8 @@ export default {
           showName:"首页",css:"el-icon-star-off",child:[{showName:"测试1",url:"/"}]
         },{
           showName:"测试",css:"el-icon-circle-check-outline",child:[{showName:"测试2",url:"/test2"}]
+        },{
+          showName:"vue学习教程",css:"el-icon-edit-outline",child:[{showName:"基础教程",url:"/baseStudy"}]
         }
       ]
       this.$get('list_user',{}, res => {   //自己实现的请求方法

@@ -13,7 +13,6 @@
     },
     methods:{
       login(){
-        console.log(1)
         commonUtil.setCookie("login","zhujie")
         this.$router.push("/")
       }
