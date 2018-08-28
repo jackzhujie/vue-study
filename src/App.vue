@@ -54,28 +54,44 @@ export default {
       console.log(key, keyPath);
       this.$store.commit('setMenuPosition',keyPath[1])     //这里存在菜单位置
     },
-    getMenuRoute:function () {
+    dealMenu(){
+      //利用vue-router2.2.0新增特性addRoutes实现路由动态加载，菜单动态加载，运用于后台管理系统，路由数据取自数据库
       let arr = []
-      this.$get('list_user',{}, res => {   //自己实现的请求方法
-        this.menuList = res    //菜单获取成功 ，菜意味着权限，通过权限来加载路由
-        //利用vue-router2.2.0新增特性addRoutes实现路由动态加载，菜单动态加载，运用于后台管理系统，路由数据取自数据库
-        this.menuList.forEach( item => {
-          item.child.forEach( row => {
-            //根据后台返回的url，这里加载对于的route
-            this.routeData.forEach( route => {
-              if(row.url == route.path){
-                arr.push(route)
-              }
-            })
+      this.menuList.forEach( item => {
+        item.child.forEach( row => {
+          //根据后台返回的url，这里加载对于的route
+          this.routeData.forEach( route => {
+            if(row.url == route.path){
+              arr.push(route)
+            }
           })
         })
-        this.$router.addRoutes(arr)
+      })
+      console.log(arr)
+      this.$router.addRoutes(arr)
+    },
+    getMenuRoute:function () {
+      const defaultMenu = [
+        {
+          showName:"首页",css:"el-icon-star-off",child:[{showName:"测试1",url:"/"}]
+        },{
+          showName:"测试",css:"el-icon-circle-check-outline",child:[{showName:"测试2",url:"/test2"}]
+        }
+      ]
+      this.$get('list_user',{}, res => {   //自己实现的请求方法
+        this.menuList = res    //菜单获取成功 ，菜意味着权限，通过权限来加载路由
+        this.dealMenu()
+      },err =>{
+        this.menuList = defaultMenu
+        this.dealMenu()
+        console.log(err)
+        this.showAlert("服务器异常！","error")
       })
     }
   },
   computed:{
     activeIndex:function () {              //从vuex获取数据
-      return this.$store.state.menuPosition
+      return this.$store.state.menuPosition[0]
     },
     isLoading:function () {
       return this.$store.state.isLoading

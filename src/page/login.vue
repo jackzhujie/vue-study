@@ -1,13 +1,24 @@
 <template>
     <div class="login">
-      <p>登录</p>
+      <el-button @click="login">点击登录</el-button>
     </div>
 </template>
 
 <script>
-    export default {
-        name: "login"
+  const commonUtil = require('../assets/util/common')
+  export default {
+    name: "login",
+    data(){
+        return {}
+    },
+    methods:{
+      login(){
+        console.log(1)
+        commonUtil.setCookie("login","zhujie")
+        this.$router.push("/")
+      }
     }
+  }
 </script>
 
 <style scoped>
