@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>vue基础环境</title>
+</head>
+<body>
+<div id="app">
+  <!--使用{{}}，在页面上是用了this下的test变量，并执行了一个js原生的Math.random方法-->
+  <div>{{ Math.random(count + 1) }}</div>
+  <!--这里使用v-bind和v-on分别绑定了一个变量和一个事件,意思是，当clickCount < 0 时，那么按钮就具有disabled属性。当点击按钮是，会执行clickCount方法-->
+  <button v-bind:disabled="count <= 2" v-on:click="clickCount">试着点击我</button>
+  <!--上面的代码可以简写-->
+  <button :disabled="count <= 2" @click="clickCount">试着点击我</button>
+  <!--指令，指令可以用内置指令，也可以自定义指令,这里用v-text给p标签渲染一个count值，后面会具体讲指令-->
+  <p v-text="'count的值:' + count"></p>
+  <!--使用v-html渲染一段html-->
+  <h5 class="title">v-html测试</h5>
+  <p v-html="template"></p>
+  <!--v-if判断是否显示，v-els展示了相反的情况-->
+  <h5 class="title">v-if,v-else测试</h5>
+  <template v-if="count > 2">
+    <p>我不显示</p>
+  </template>
+  <template v-else>
+    <p>我显示了</p>
+  </template>
+  <!--v-show判断是否显示-->
+  <h5 class="title">v-show测试</h5>
+  <p v-show="count > 2">我显示了</p>
+  <!--v-for来循环渲染一段代码-->
+  <h5 class="title">v-for测试</h5>
+  <ul>
+    <li v-for="i in count">{{i}}</li>
+  </ul>
+  <!--v-model来绑定一个输入框的变量，具有双向绑定-->
+  <h5 class="title">
+    v-model测试:
+  </h5>
+  <span>输入count的值：</span><input type="number" v-model.number="count">
+  <!--class测试-->
+  <div class="title" :class="{'active':count > 2,'active1':getCount,'test':1}">:class测试</div>
+  <!--style测试-->
+  <div class="title1" :style="[{'height':getCount() ? '20px' : '40px'},styleObj]">:style测试</div>
+  <!--这里在box1和box2中都引用组件button-counter-->
+  <h5>组件示例：</h5>
+  <div class="box1" style="margin: 20px 0;">
+    <button-counter></button-counter>
+  </div>
+  <div class="box2">
+    <button-counter></button-counter>
+  </div>
+</div>
+</body>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  // 注册一个全局组件
+  var clickTimes = {
+    data: function () {
+      return {
+        myCount: 0
+      }
+    },
+    template: '<button v-on:click="myCount++">You clicked me {{ myCount }} times.</button>'
+  }
+  Vue.component('button-counter',clickTimes)
+  var app = new Vue({
+    el: '#app',
+    data: {
+      count:5,
+      styleObj:{
+        'font-size':'20px',
+        'color':'red'
+      },
+      template:"<span>我是测试</span>"
+    },
+
+    methods:{              //所有挂载在this对象上的方法，可以在页面上使用
+      getCount(){
+        return true
+      },
+      clickCount(){
+        if(this.count < 2){
+          return
+        }
+        this.count -= 1
+
+      }
+    }
+  })
+</script>
+</html>
