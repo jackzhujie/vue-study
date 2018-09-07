@@ -31,6 +31,7 @@
 import test1 from '@/page/testPage1.vue'
 import test2 from '@/page/testPage2.vue'
 import vueBase from '@/page/vueBase.vue'
+import componentStudy from '@/page/componentStudy.vue'
 export default {
   name: 'app',
   data(){
@@ -51,7 +52,12 @@ export default {
           path: '/baseStudy',
           name: '基础学习',
           component: vueBase
-        }
+        },
+        {
+          path: '/componentStudy',
+          name: '组件教程',
+          component: componentStudy
+        },
       ]
     }
   },
@@ -83,7 +89,10 @@ export default {
         },{
           showName:"测试",css:"el-icon-circle-check-outline",child:[{showName:"测试2",url:"/test2"}]
         },{
-          showName:"vue学习教程",css:"el-icon-edit-outline",child:[{showName:"基础教程",url:"/baseStudy"}]
+          showName:"vue学习教程",css:"el-icon-edit-outline",child:[
+            {showName:"基础教程",url:"/baseStudy"},
+            {showName:"组件教程",url:"/componentStudy"},
+          ]
         }
       ]
       this.$get('list_user',{}, res => {   //自己实现的请求方法

@@ -21,7 +21,7 @@
     /* 打包 */
     npm run build
 ```
-   
+`node-sass`能容易安装失败，可以参照(这个)[https://segmentfault.com/a/1190000010984731]来安装。
     
     
 
