@@ -32,6 +32,7 @@ import test1 from '@/page/testPage1.vue'
 import test2 from '@/page/testPage2.vue'
 import vueBase from '@/page/vueBase.vue'
 import componentStudy from '@/page/componentStudy.vue'
+import vuedirective from '@/page/vueDirective.vue'
 export default {
   name: 'app',
   data(){
@@ -57,6 +58,11 @@ export default {
           path: '/componentStudy',
           name: '组件教程',
           component: componentStudy
+        },
+        {
+          path: '/vueDirective',
+          name: '自定义指令教程',
+          component: vuedirective
         },
       ]
     }
@@ -92,6 +98,7 @@ export default {
           showName:"vue学习教程",css:"el-icon-edit-outline",child:[
             {showName:"基础教程",url:"/baseStudy"},
             {showName:"组件教程",url:"/componentStudy"},
+            {showName:"自定义指令教程",url:"/vueDirective"},
           ]
         }
       ]
