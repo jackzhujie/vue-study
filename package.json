@@ -14,7 +14,6 @@
     "babel-polyfill": "^6.26.0",
     "element-ui": "^2.0.11",
     "jquery": "^3.2.1",
-    "node-sass": "^4.9.3",
     "nprogress": "^0.2.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1",
