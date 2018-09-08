@@ -1,5 +1,10 @@
 <template>
   <div class="vuedirective">
+    <span>
+      自定义指令：
+      <br>
+      实现一个只能输入数字的输入框 <br>
+    </span>
     <input type="text" v-model="age" placeholder="请输入年龄" v-num-check="changeAge">
   </div>
 </template>
