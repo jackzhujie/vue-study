@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <div id="app">
+    <div class="box1">
+      <button-counter></button-counter>
+    </div>
+    <div class="box2">
+      <button-counter></button-counter>
+    </div>
+  </div>
+</body>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  // 定义一个名为 button-counter 的新组件
+  Vue.component('button-counter', {
+    data: function () {
+      return {
+        count: 0
+      }
+    },
+    template: '<button v-on:click="count++">You clicked me {{ count }} times.</button>'
+  })
+  var vm = new Vue({
+    el:"#app",
+    data: function () {
+      return {}
+    }
+  })
+</script>
+</html>
