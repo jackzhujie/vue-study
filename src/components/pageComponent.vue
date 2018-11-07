@@ -10,15 +10,15 @@
       <template v-else-if="currentPage < 4">
         <button v-for="i in 6" @click="changeCurrentPage(i)" :class="{active:i === currentPage}" :key="i">{{i}}</button>
         <button :disabled="true">···</button>
-        <button>{{pageTotal}}</button>
+        <button @click="changeCurrentPage(pageTotal)">{{pageTotal}}</button>
       </template>
       <template v-else-if="currentPage > pageTotal - 4">
-        <button>1</button>
+        <button @click="changeCurrentPage(1)">1</button>
         <button :disabled="true">···</button>
         <button v-for="i in 6" @click="changeCurrentPage(i + (pageTotal - 6))" :class="{active:(i + (pageTotal - 6)) === currentPage}" :key="i">{{i + (pageTotal - 6)}}</button>
       </template>
       <template v-else>
-        <button>1</button>
+        <button @click="changeCurrentPage(1)">1</button>
         <button :disabled="true">···</button>
         <button @click="changeCurrentPage(currentPage - 2)">{{currentPage - 2}}</button>
         <button @click="changeCurrentPage(currentPage - 1)">{{currentPage - 1}}</button>
