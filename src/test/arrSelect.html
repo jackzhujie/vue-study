@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <p>用Array实现：</p>
+  <el-select v-model="selectId" @change="changeItem">
+    <el-option v-for="(item,index) in showList" :value="item.id" :label="item.name" :key="index"></el-option>
+  </el-select>
+  <p v-show="selectId">{{`当前选择：${showText},id为${selectId}`}}</p>
+</div>
+</body>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+  var vm = new Vue({
+    el:"#app",
+    data: function () {
+      return {
+        selectId:'',
+        showText:'',
+        selectMapId:'',
+        showList: [
+          {name: '西游记', id: 1},
+          {name: '三国演义', id: 2},
+          {name: '水浒传', id: 3},
+          {name: '红楼梦', id: 4}
+        ]
+      }
+    },
+    methods: {
+      changeItem() {
+        for (let i in this.showList) {
+          if (this.showList[i].id == this.selectId) {
+            this.showText = this.showList[i].name
+            break
+          }
+        }
+      }
+    }
+  })
+</script>
+</html>

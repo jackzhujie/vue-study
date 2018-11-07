@@ -1,6 +1,6 @@
 <template>
   <div id="app" v-loading.fullscreen.lock="isLoading">                   <!--所有的东西都挂载在id为app的节点下-->
-   <el-row>
+   <el-row :gutter="20">
      <el-col :span="4">
        <!--菜单-->
        <el-menu
@@ -34,6 +34,7 @@ import vueBase from '@/page/vueBase.vue'
 import componentStudy from '@/page/componentStudy.vue'
 import vuedirective from '@/page/vueDirective.vue'
 import pageTest from '@/page/pageComponentsTest.vue'
+import mapToArrayTest from '@/page/mapToArrayTest.vue'
 export default {
   name: 'app',
   data(){
@@ -69,6 +70,11 @@ export default {
           path: '/pageTest',
           name: '分页组件测试',
           component: pageTest
+        },
+        {
+          path: '/mapToArrayTest',
+          name: 'map代替array避免遍历',
+          component: mapToArrayTest
         },
       ]
     }
@@ -106,6 +112,11 @@ export default {
             {showName:"组件教程",url:"/componentStudy"},
             {showName:"自定义指令教程",url:"/vueDirective"},
             {showName:"分页组件",url:'/pageTest'}
+          ]
+        },
+        {
+          showName:'js技巧',css:'el-icon-circle-check-outline',child:[
+            {showName:'map代替array避免遍历',url:'/mapToArrayTest'}
           ]
         }
       ]

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <p>用Map实现：</p>
+  <el-select v-model="selectId">
+    <el-option v-for="(val,key) in showMap" :value="key" :label="val" :key="key"></el-option>
+  </el-select>
+  <p v-show="selectId">{{`当前选择：${showMap[selectId]},id为${selectId}`}}</p>
+</div>
+</body>
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script>
+  var vm = new Vue({
+    el:"#app",
+    data: function () {
+      return {
+        selectId:'',
+        showText:'',
+        selectMapId:'',
+        showList: [
+          {name: '西游记', id: 1},
+          {name: '三国演义', id: 2},
+          {name: '水浒传', id: 3},
+          {name: '红楼梦', id: 4}
+        ]
+      }
+    },
+    methods: {},
+    computed: {
+      showMap(){
+        let map = {}
+        this.showList.forEach(row =>{
+          map[row.id] = row.name
+        })
+        return map
+      }
+    },
+  })
+</script>
+</html>
