@@ -35,6 +35,7 @@ import componentStudy from '@/page/componentStudy.vue'
 import vuedirective from '@/page/vueDirective.vue'
 import pageTest from '@/page/pageComponentsTest.vue'
 import mapToArrayTest from '@/page/mapToArrayTest.vue'
+import selectRepeat from '@/page/selectRepeat.vue'
 export default {
   name: 'app',
   data(){
@@ -76,6 +77,10 @@ export default {
           name: 'map代替array避免遍历',
           component: mapToArrayTest
         },
+        {
+          path: '/selectRepeat',
+          component: selectRepeat
+        },
       ]
     }
   },
@@ -116,7 +121,8 @@ export default {
         },
         {
           showName:'js技巧',css:'el-icon-circle-check-outline',child:[
-            {showName:'map代替array避免遍历',url:'/mapToArrayTest'}
+            {showName:'map代替array避免遍历',url:'/mapToArrayTest'},
+            {showName:'多个下拉去重',url:'/selectRepeat'}
           ]
         }
       ]
