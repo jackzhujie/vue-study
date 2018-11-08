@@ -7,7 +7,7 @@
         <el-option v-for="(val,key) in selectMap" v-show="isSelect(parseInt(key),item.id)" :value="parseInt(key)" :key="key" :label="val"></el-option>
       </el-select>
       <el-input placeholder="请输入费用" v-model="item.money" type="number" class="money"></el-input>
-      <el-button type="info" icon="el-icon-circle-plus-outline" circle @click="add" v-show="selectData.length -1 > index"></el-button>
+      <el-button type="info" icon="el-icon-circle-plus-outline" circle @click="add" v-show="selectData.length > selectItemList.length"></el-button>
       <el-button type="info" icon="el-icon-remove-outline" circle @click="reduce(index)" v-show="selectItemList.length > 1"></el-button>
     </div>
     <h5 class="total">{{`总费用：${total}元`}}</h5>
