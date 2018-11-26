@@ -36,6 +36,7 @@ import vuedirective from '@/page/vueDirective.vue'
 import pageTest from '@/page/pageComponentsTest.vue'
 import mapToArrayTest from '@/page/mapToArrayTest.vue'
 import selectRepeat from '@/page/selectRepeat.vue'
+import serverTest from '@/page/serverTest.vue'
 export default {
   name: 'app',
   data(){
@@ -81,6 +82,10 @@ export default {
           path: '/selectRepeat',
           component: selectRepeat
         },
+        {
+          path: '/serverTest',
+          component: serverTest
+        },
       ]
     }
   },
@@ -110,7 +115,7 @@ export default {
         {
           showName:"首页",css:"el-icon-star-off",child:[{showName:"测试1",url:"/"}]
         },{
-          showName:"测试",css:"el-icon-circle-check-outline",child:[{showName:"测试2",url:"/test2"}]
+          showName:"测试",css:"el-icon-circle-check-outline",child:[{showName:"node服务测试",url:"/serverTest"}]
         },{
           showName:"vue学习教程",css:"el-icon-edit-outline",child:[
             {showName:"基础教程",url:"/baseStudy"},
@@ -126,15 +131,17 @@ export default {
           ]
         }
       ]
-      this.$get('list_user',{}, res => {   //自己实现的请求方法
-        this.menuList = res    //菜单获取成功 ，菜意味着权限，通过权限来加载路由
-        this.dealMenu()
-      },err =>{
-        this.menuList = defaultMenu
-        this.dealMenu()
-        console.log(err)
-        this.showAlert("服务器异常！","error")
-      })
+      this.menuList = defaultMenu
+      this.dealMenu()
+      // this.$get('list_user',{}, res => {   //自己实现的请求方法
+      //   this.menuList = res    //菜单获取成功 ，菜意味着权限，通过权限来加载路由
+      //   this.dealMenu()
+      // },err =>{
+      //   this.menuList = defaultMenu
+      //   this.dealMenu()
+      //   console.log(err)
+      //   this.showAlert("服务器异常！","error")
+      // })
     }
   },
   computed:{

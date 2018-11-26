@@ -1,6 +1,6 @@
 <template>
   <!--分页组件-->
-  <div class="pageComponent">
+  <div class="pageComponent" v-if="pageConfig.total">
       <!--上一页-->
       <button @click="prePage" :disabled="currentPage === 1">上一页</button>
       <!--总页数小于8的-->
