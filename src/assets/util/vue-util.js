@@ -27,7 +27,8 @@ export default {
       if(!errorCallBack){
         errorCallBack = defaultErrorCallBack
       }
-      this.$axios.delete(url,parmas).then( res => {
+      console.log(parmas,'params')
+      this.$axios.delete(url,{data:parmas}).then( res => {
         successCallBack(res.data)
       }).catch( err => {
         errorCallBack(err)
@@ -55,7 +56,6 @@ export default {
       if(!errorCallBack){
         errorCallBack = defaultErrorCallBack
       }
-      parmas = $.extend(defaultParams,parmas)
       this.$axios.post(url,parmas).then( res => {
         successCallBack(res.data)
       }).catch( err => {
@@ -85,14 +85,21 @@ export default {
       config.pageSize = baseConfig.pageSize
       return config
     }
-    Vue.prototype.showAlert = function (content,type) {
+    Vue.prototype.showAlert = function (type = 'success',content = '操作成功！') {
       this.$message({
         message: content,
-        type: type || 'success'   //success/warning/info/error
+        type: type
       });
     }
     Vue.prototype.getRandomColor =  function(){
       return '#'+('333333'+(Math.random()*0x15720922<<0).toString(16)).substr(-6);
+    }
+    Vue.prototype.getPageConfig = function(res,params) {
+      return {
+        pageNo:params.pageNo || 0,
+        pageSize:params.pageSize || 10,
+        total:res.data.total || 0
+      }
     }
   }
 }

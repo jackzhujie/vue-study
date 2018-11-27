@@ -1,11 +1,3 @@
-// 获取后台的分页参数
-function getPageConfig(res,params) {
-  return {
-    pageNo:params.pageNo || 0,
-    pageSize:params.pageSize || 10,
-    total:res.data.total || 0
-  }
-}
 //写cookies
 function setCookie(name,value)
 {
@@ -34,7 +26,7 @@ function delCookie(name)
 }
 
 module.exports = {
-  setCookie:setCookie,
-  getCookie:getCookie,
-  delCookie:delCookie
+  setCookie,
+  getCookie,
+  delCookie
 }
