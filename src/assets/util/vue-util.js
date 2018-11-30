@@ -1,4 +1,9 @@
 const baseConfig = require('./baseConfig')
+
+const defaultErrorCallBack = err => {
+  this.showAlert('error',err)
+}
+
 export default {
   install(Vue, options) {
     const defaultParams = {
@@ -7,9 +12,6 @@ export default {
     }
     //patch请求
     Vue.prototype.$patch = function (url,parmas,successCallBack,errorCallBack) {
-      const defaultErrorCallBack = err => {
-        this.showAlert(err,'error')
-      }
       if(!errorCallBack){
         errorCallBack = defaultErrorCallBack
       }
@@ -21,9 +23,6 @@ export default {
     }
     //delete请求
     Vue.prototype.$del = function (url,parmas,successCallBack,errorCallBack) {
-      const defaultErrorCallBack = err => {
-        this.showAlert(err,'error')
-      }
       if(!errorCallBack){
         errorCallBack = defaultErrorCallBack
       }
@@ -36,9 +35,6 @@ export default {
     }
     //put请求
     Vue.prototype.$put = function (url,parmas,successCallBack,errorCallBack) {
-      const defaultErrorCallBack = err => {
-        this.showAlert(err,'error')
-      }
       if(!errorCallBack){
         errorCallBack = defaultErrorCallBack
       }
@@ -50,9 +46,6 @@ export default {
     }
     //post请求
     Vue.prototype.$post = function (url,parmas,successCallBack,errorCallBack) {
-      const defaultErrorCallBack = err => {
-        this.showAlert(err,'error')
-      }
       if(!errorCallBack){
         errorCallBack = defaultErrorCallBack
       }
@@ -65,10 +58,6 @@ export default {
 
     //get请求
     Vue.prototype.$get = function (url,parmas,successCallBack,errorCallBack) {
-      const defaultErrorCallBack = err => {
-        console.log(err)
-        this.showAlert(err,'error')
-      }
       if(!errorCallBack){
         errorCallBack = defaultErrorCallBack
       }
