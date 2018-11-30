@@ -115,7 +115,7 @@ export default {
         {
           showName:"首页",css:"el-icon-star-off",child:[{showName:"测试1",url:"/"}]
         },{
-          showName:"测试",css:"el-icon-circle-check-outline",child:[{showName:"node服务测试",url:"/serverTest"}]
+          showName:"node服务测试",css:"el-icon-circle-check-outline",child:[{showName:"增删改查",url:"/serverTest"}]
         },{
           showName:"vue学习教程",css:"el-icon-edit-outline",child:[
             {showName:"基础教程",url:"/baseStudy"},
