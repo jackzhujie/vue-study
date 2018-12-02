@@ -1,11 +1,13 @@
 const baseConfig = require('./baseConfig')
 
-const defaultErrorCallBack = err => {
-  this.showAlert('error',err)
-}
 
 export default {
   install(Vue, options) {
+
+    const defaultErrorCallBack = err => {
+      Vue.showAlert('error',err)
+    }
+
     const defaultParams = {
       pageSize:baseConfig.pageSize,
       pageNo:baseConfig.pageNo
