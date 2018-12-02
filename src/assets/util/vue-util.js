@@ -10,6 +10,12 @@ export default {
       pageSize:baseConfig.pageSize,
       pageNo:baseConfig.pageNo
     }
+    Vue.prototype.showAlert = function (type = 'success',content = '操作成功！') {
+      this.$message({
+        message: content,
+        type: type
+      });
+    }
     //patch请求
     Vue.prototype.$patch = function (url,parmas,successCallBack,errorCallBack) {
       if(!errorCallBack){
@@ -73,12 +79,6 @@ export default {
       config.total = res.data.total
       config.pageSize = baseConfig.pageSize
       return config
-    }
-    Vue.prototype.showAlert = function (type = 'success',content = '操作成功！') {
-      this.$message({
-        message: content,
-        type: type
-      });
     }
     Vue.prototype.getRandomColor =  function(){
       return '#'+('333333'+(Math.random()*0x15720922<<0).toString(16)).substr(-6);
