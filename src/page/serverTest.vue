@@ -192,6 +192,7 @@
         },
         components: {'page-component': pageComponent},
         mounted(){
+            return
             document.getElementsByClassName("right")[0].addEventListener("scroll",()=> {
                 console.log(this.selectIndex,'a')
                 const scrollTop = document.getElementsByClassName("right")[0].scrollTop
