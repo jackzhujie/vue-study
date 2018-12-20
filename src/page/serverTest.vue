@@ -46,7 +46,7 @@
         </el-dialog>
         <page-component :page-config="pageConfig" @changeCurrentPage="changeCurrentPage"></page-component>
 
-        <div class="scroll_test">
+        <div class="scroll_test" v-show="false">
             <div class="left">
                 <a class="floor_list" @click="changeSelect(key,item.floorId)"
                    v-for="(item,key) in testList" :key="key" :class="{active:selectIndex === key}">{{item.floorId +
