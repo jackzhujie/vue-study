@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排名</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+    //需求：在一个已知的数组中，随机选取一部分组成新的数据，要求数组元素不重复出现：
+    //常规实现
+    var arr = [3,5,30,20,21,50,80,6,8,10,15]
+    //去重一下,不去重，可能造成死循环
+    arr = arr.filter(function(element,index,self){
+        return self.indexOf(element) === index;
+    });
+    var getArr = function (len) {
+        var tempArr = []
+        var mathIndex
+        var arrLen = arr.length
+        var arrItem
+        var arrIndexMap = {}
+        if(len > arrLen){
+            console.log('无法获取指定长度的数组！')
+            return
+        }
+        while (tempArr.length < len){
+            //向下取整，得到0-(arrLen - 1)的整数
+            mathIndex = Math.floor(Math.random() * arrLen)
+            arrItem = arr[mathIndex]
+            tempArr.push(arrItem)
+            //讲push过的index存到map里面
+
+        }
+        console.log(tempArr)
+        return tempArr
+    }
+    getArr(5)
+    getArr(6)
+    getArr(11)
+    // getArr(12)
+
+
+    // 对象替换数组的方式实现：
+    var getMyArr = function (len) {
+        var tempArr = []
+        var mathIndex
+        var arrLen = arr.length
+        var arrItem
+        var arrIndexMap = {}
+        if(len > arrLen){
+            console.log('无法获取指定长度的数组！')
+            return
+        }
+        while (tempArr.length < len){
+            //向下取整，得到0-(arrLen - 1)的整数
+            mathIndex = Math.floor(Math.random() * arrLen)
+            arrItem = arr[mathIndex]
+            //判断是否重复
+            if(!arrIndexMap[mathIndex]){
+                //不存在，push，并保存index
+                tempArr.push(arrItem)
+                arrIndexMap[mathIndex] = true
+            }
+        }
+        console.log(tempArr)
+        return tempArr
+    }
+    getMyArr(5)
+    getMyArr(6)
+    getMyArr(11)
+    //待排名数组
+    var myname = ['张三','李四',"王五","赵六"];
+    var names = [];
+    function getNameArray(){
+        var arr = getRandom(myname.length);
+        for(var i = 0; i < arr.length; i++){
+            names.push(myname[arr[i]]);
+        }
+        document.write("本周排名:"+names);
+    }
+    function getRandom(len){
+        var numberArray = [];
+        var dd = {};                //判断是否生成过次随机数
+        while(numberArray.length != len){
+            var num = "";
+            for(var j = 0; j < len; j++){
+                num = Math.floor(Math.random() * len);
+                if(!dd[num]){    //判断对象dd里面是否存在过改数据
+                    numberArray.push(num);
+                    dd[num] = 1;
+                }
+            }
+        }
+        return numberArray;
+    }
+    getNameArray();
+
+
+</script>
+</html>

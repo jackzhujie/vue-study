@@ -27,8 +27,10 @@
     }
 </script>
 <style lang="scss">
+    @import "assets/scss/reset.css";
     @import "assets/scss/common";
     @import "assets/scss/style.css";
+    @import "assets/scss/display.css";
 </style>
 <style>
     #app {

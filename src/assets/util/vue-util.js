@@ -3,11 +3,6 @@ const baseConfig = require('./baseConfig')
 
 export default {
     install(Vue, options) {
-
-        const defaultErrorCallBack = err => {
-            Vue.showAlert('error', err)
-        }
-
         const defaultParams = {
             pageSize: baseConfig.pageSize,
             pageNo: baseConfig.pageNo
@@ -20,60 +15,45 @@ export default {
         }
         //patch请求
         Vue.prototype.$patch = function (url, parmas, successCallBack, errorCallBack) {
-            if (!errorCallBack) {
-                errorCallBack = defaultErrorCallBack
-            }
             this.$axios.patch(url, parmas).then(res => {
                 successCallBack(res.data)
             }).catch(err => {
-                errorCallBack(err)
+                (errorCallBack && errorCallBack()) || this.showAlert('error', err)
             })
         }
         //delete请求
         Vue.prototype.$del = function (url, parmas, successCallBack, errorCallBack) {
-            if (!errorCallBack) {
-                errorCallBack = defaultErrorCallBack
-            }
             console.log(parmas, 'params')
             this.$axios.delete(url, {data: parmas}).then(res => {
                 successCallBack(res.data)
             }).catch(err => {
-                errorCallBack(err)
+                (errorCallBack && errorCallBack()) || this.showAlert('error', err)
             })
         }
         //put请求
         Vue.prototype.$put = function (url, parmas, successCallBack, errorCallBack) {
-            if (!errorCallBack) {
-                errorCallBack = defaultErrorCallBack
-            }
             this.$axios.put(url, parmas).then(res => {
                 successCallBack(res.data)
             }).catch(err => {
-                errorCallBack(err)
+                (errorCallBack && errorCallBack()) || this.showAlert('error', err)
             })
         }
         //post请求
         Vue.prototype.$post = function (url, parmas, successCallBack, errorCallBack) {
-            if (!errorCallBack) {
-                errorCallBack = defaultErrorCallBack
-            }
             this.$axios.post(url, parmas).then(res => {
                 successCallBack(res.data)
             }).catch(err => {
-                errorCallBack(err)
+                (errorCallBack && errorCallBack()) || this.showAlert('error', err)
             })
         }
 
         //get请求
         Vue.prototype.$get = function (url, parmas, successCallBack, errorCallBack) {
-            if (!errorCallBack) {
-                errorCallBack = defaultErrorCallBack
-            }
             parmas = Object.assign(defaultParams,parmas)
             this.$axios.get(url, parmas).then(res => {
                 successCallBack(res.data)
             }).catch(err => {
-                errorCallBack(err)
+                (errorCallBack && errorCallBack()) || this.showAlert('error', err)
             })
         }
         Vue.prototype.getPageConfig = function (res, params) {

@@ -2,7 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router.js'
+import router from './router/router.js'
 import axios from 'axios'
 import Vuex from 'vuex'     //状态管理工具
 import stores from './vuex/store'  //引入vuex的状态仓库
@@ -38,11 +38,11 @@ axios.defaults.baseURL = baseURL
 // 添加请求拦截器
 axios.interceptors.request.use(function (config) {
   //请求之前获取cookie，查看是否登录
-  if(config.url.indexOf('/login') < 0 && !commonUtil.getCookie('login')){
-    // Vue.showAlert('未登录，已经跳转到首页')
-    router.push('/login')
-    return
-  }
+  // if(config.url.indexOf('/login') < 0 && !commonUtil.getCookie('login')){
+  //   // Vue.showAlert('未登录，已经跳转到首页')
+  //   router.push('/login')
+  //   return
+  // }
   stores.commit('setShowLoading',true)
   if (config.method == 'post') {   //post请求进行添加分页参数
     if (!config.data) {
@@ -73,11 +73,11 @@ axios.interceptors.response.use((response) => {
 //路由拦截
 router.beforeEach((to, from, next) => {              //路由跳转时，添加进度条
   //处理页面位置
-  if(to.name != 'login' && !commonUtil.getCookie('login')){
-    // Vue.showAlert('未登录，已经调整到首页')
-    router.push('/login')
-    return
-  }
+  // if(to.name != 'login' && !commonUtil.getCookie('login')){
+  //   // Vue.showAlert('未登录，已经调整到首页')
+  //   router.push('/login')
+  //   return
+  // }
   NProgress.start();    //顶部进度条
   next()
 });
@@ -106,3 +106,5 @@ const vm = new Vue({
   template: '<App/>',
   components: {App}
 })
+
+console.log(vm.$router)
