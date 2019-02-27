@@ -15,9 +15,9 @@
     "echarts": "^4.2.0-rc.2",
     "element-ui": "^2.0.11",
     "jquery": "^3.2.1",
+    "mavon-editor": "^2.6.17",
     "nprogress": "^0.2.0",
     "vue": "^2.5.2",
-    "vue-meditor": "^0.9.3",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1",
     "vuex-persist": "^1.1.1"
