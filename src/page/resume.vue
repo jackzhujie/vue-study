@@ -60,7 +60,7 @@
 
 <style>
     body {
-        background: #011128;
+        /*background: #011128;*/
         color: #fff;
     }
     .app {

@@ -237,7 +237,7 @@
         },
         computed: {},
         components:{
-            mavonEditor
+            mavonEditor: mavonEditor
         },
         created: function () {
             // 箭头函数测试
