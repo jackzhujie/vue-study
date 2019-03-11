@@ -19,7 +19,8 @@ export const defaultMenu = [
             {showName: 'map代替array避免遍历', url: '/mapToArrayTest'},
             {showName: '多个下拉去重', url: '/selectRepeat'},
             {showName: "递归遍历", url: '/recursiveList'},
-            {showName: "ES6学习", url: '/es6Test'}
+            {showName: "ES6学习", url: '/es6Test'},
+            {showName:"各种排序测试",url:'/sortTest'}
         ]
     }
 ]
@@ -96,6 +97,11 @@ const routeFile = [
         path: "/es6Test",
         component: () => {
             return import('@/page/es6Test')
+        }
+    }, {
+        path: "/sortTest",
+        component: () => {
+            return import('@/page/sortTest.vue')
         }
     }
 ]
