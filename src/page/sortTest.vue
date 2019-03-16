@@ -74,7 +74,6 @@
                 }
                 const insertSort = ()=>{
                     const operateArr = this.getRandomArr(this.randomLen)
-                    console.log(operateArr,'startData')
                     for(let i = 1 ; i < this.randomLen ; i++){
                         for(let j = i - 1;j >= 0; j--){
                             if(operateArr[i] <= operateArr[j]){
@@ -91,6 +90,22 @@
                     }
                     console.log(operateArr,'insertSort')
                 }
+                const mergeSort = ()=>{
+                    // const operateArr = this.getRandomArr(this.randomLen)
+                    // //递归，拿一个数组进行除2，直到不能除为止
+                    // const merge = (i = 0,j = 0)=> {
+                    //     if(j === i){
+                    //         merge(j + 1,Math.random(j/2))
+                    //     }if(j - i === 1){
+                    //         if(arr[i] > arr[j]){
+                    //             this.swap(operateArr,i,j)
+                    //         }
+                    //     }else {
+                    //         merge(i,Math.random(j/2))
+                    //     }
+                    //     merge(0,this.randomLen - 1)
+                    // }
+                }
                 // 冒泡排序
                 bubbleSort()
                 // 优化算法，如果所有的数据都是排序好的，那我就不需要每一个进行对比了
@@ -99,6 +114,8 @@
                 selectSort()
                 //插入排序
                 insertSort()
+                // 归并排序
+                mergeSort()
             }
         },
         computed: {},

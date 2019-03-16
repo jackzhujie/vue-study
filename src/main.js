@@ -73,6 +73,9 @@ axios.interceptors.response.use((response) => {
 //路由拦截
 router.beforeEach((to, from, next) => {              //路由跳转时，添加进度条
   //处理页面位置
+    if(to.fullPath === '/'){
+        router.push('/baseStudy')
+    }
   // if(to.name != 'login' && !commonUtil.getCookie('login')){
   //   // Vue.showAlert('未登录，已经调整到首页')
   //   router.push('/login')

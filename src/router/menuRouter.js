@@ -1,12 +1,6 @@
 // 一级菜单，路由文件
 export const defaultMenu = [
     {
-        showName: "首页", css: "el-icon-star-off", child: [{showName: "测试1", url: "/"}]
-    }, {
-        showName: "node服务测试",
-        css: "el-icon-circle-check-outline",
-        child: [{showName: "增删改查", url: "/serverTest"}]
-    }, {
         showName: "vue学习教程", css: "el-icon-edit-outline", child: [
             {showName: "基础教程", url: "/baseStudy"},
             {showName: "组件教程", url: "/componentStudy"},
@@ -22,7 +16,12 @@ export const defaultMenu = [
             {showName: "ES6学习", url: '/es6Test'},
             {showName:"各种排序测试",url:'/sortTest'}
         ]
-    }
+    },
+    {
+        showName: "node服务测试",
+        css: "el-icon-circle-check-outline",
+        child: [{showName: "增删改查", url: "/serverTest"}]
+    },
 ]
 
 //路由文件
@@ -31,7 +30,7 @@ const routeFile = [
         path: '*',
         name: 'test1',
         component: () => {
-            return import('@/page/testPage1')
+            return import('@/page/componentStudy')
         }
     },
     {
@@ -45,7 +44,7 @@ const routeFile = [
         path: '/baseStudy',
         name: '基础学习',
         component: () => {
-            return import('@/page/vueBase')
+            return import('@/page/baseStudy')
         }
     },
     {
