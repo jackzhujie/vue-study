@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import login from '../page/login'
 import layout from '@/page/layout'
 import resume from '@/page/resume'
+import testPage1 from '@/page/testPage1'
 import createResume from "@/page/createResume"
 
 import {defaultMenu} from "./menuRouter";
@@ -17,6 +18,11 @@ const router = new Router({
             name: 'login',
             path: '/login',
             component: login,
+        },
+        {
+            name: 'testPage1',
+            path: '/testPage1',
+            component: testPage1,
         },
         {
             path: '/resume',
