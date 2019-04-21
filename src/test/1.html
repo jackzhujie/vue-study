@@ -81,7 +81,7 @@
 	        function appendTextRandom() {
 	            context.clearRect(0, 0, canvas.width, canvas.height);
 
-	           
+
 	            //这里分2部分，一部分渲染有背景颜色的点，另一部分渲染普通的点
 
 	            // 绘制填充矩形
@@ -107,11 +107,11 @@
 	            var grad=context.createRadialGradient(_this.domeWidth/2,_this.domeHeight/2,_this.domeHeight/2 * 0.1,_this.domeWidth/2,_this.domeHeight/2,_this.domeWidth/1.8) //创建一个渐变色线性对象
 	            grad.addColorStop(1,"rgba(0,0,0,0.8)");
 				grad.addColorStop(0,"rgba(255,255,255,0.2)");
-				
+
 				context.fillStyle=grad;
 				context.fillRect(0,0,canvas.width, canvas.height);
 				context.fill()
-				
+
 
 
 	            _this.allTextArr.forEach(row => {
@@ -249,8 +249,6 @@
                 }
                 requestAnimationFrame(render);
             }
-
-
       	initThree()
    }
    createEarth()

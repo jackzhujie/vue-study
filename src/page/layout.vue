@@ -24,6 +24,9 @@
             </el-col>
             <el-col :span="20">
                 <router-view></router-view>    <!--单页面应用，所有的内容在这个节点切换-->
+                <div class="info">
+                    <a href="http://www.miitbeian.gov.cn">备案号：粤 ICP备19029899号-1</a>
+                </div>
             </el-col>
         </el-row>
     </div>
@@ -54,5 +57,12 @@
 
 <style lang="scss">
     .layout {
+        .info{
+            position: fixed;
+            bottom:0;
+            text-align: center;
+            left: 0;
+            right: 0;
+        }
     }
 </style>
