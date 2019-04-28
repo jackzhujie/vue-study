@@ -14,7 +14,8 @@ export const defaultMenu = [
             {showName: '多个下拉去重', url: '/selectRepeat'},
             {showName: "递归遍历", url: '/recursiveList'},
             {showName: "ES6学习", url: '/es6Test'},
-            {showName:"各种排序测试",url:'/sortTest'}
+            {showName:"各种排序测试",url:'/sortTest'},
+            {showName:"前端算法集合",url:'/questionList'}
         ]
     },
     {
@@ -101,6 +102,11 @@ const routeFile = [
         path: "/sortTest",
         component: () => {
             return import('@/page/sortTest.vue')
+        }
+    },{
+        path:'/questionList',
+        component: () => {
+            return import('@/page/questionList.vue')
         }
     }
 ]
