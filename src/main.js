@@ -30,6 +30,12 @@ if (process.env.NODE_ENV == 'development') {      //这里配置项目开发和�
   baseURL = 'http://67.218.157.95:3300'
 }
 
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+
+Vue.use(mavonEditor)
+
+
 // 简单配置
 NProgress.inc(0.2)
 NProgress.configure({ easing: 'ease', speed: 500, showSpinner: true })
@@ -109,5 +115,3 @@ const vm = new Vue({
   template: '<App/>',
   components: {App}
 })
-
-console.log(vm.$router)

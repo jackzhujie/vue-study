@@ -37,8 +37,6 @@ const router = new Router({
     ]
 })
 
-console.log(router.addRoutes,'route')
-
 //利用vue-router2.2.0新增特性addRoutes实现路由动态加载，菜单动态加载，运用于后台管理系统，路由数据取自数据库
 let arr = []
 defaultMenu.forEach(item => {
@@ -60,7 +58,6 @@ const baseRoute = [{
     children: arr
 }]
 
-console.log(baseRoute,'test')
 
 router.addRoutes(baseRoute)
 
