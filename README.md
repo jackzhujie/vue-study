@@ -8,7 +8,7 @@
  4. axios做请求工具
  5. element-ui做ui框架。
  6. 项目实现了动态路由，跨域配置，请求拦截，路由拦截，状态本地存储等。
- 7. 线上地址  http://67.218.157.95:8080
+ 7. 线上地址  https://www.aizhifou.cn
 ```
  /*当前目录命令行输入下面的命令*/
     npm config set registry https://registry.npm.taobao.org/
