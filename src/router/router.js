@@ -9,6 +9,7 @@ import createResume from "@/page/createResume"
 import {defaultMenu} from "./menuRouter";
 import routeFile from "./menuRouter"
 
+
 Vue.use(Router)
 
 const router = new Router({

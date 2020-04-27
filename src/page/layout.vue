@@ -25,7 +25,7 @@
             <el-col :span="20">
                 <router-view></router-view>    <!--单页面应用，所有的内容在这个节点切换-->
                 <div class="info">
-                    <a href="http://www.beian.miit.gov.cn/" target="_blank">备案号：粤 ICP备19029899号-1</a>
+                    <a href="http://www.beian.miit.gov.cn/" target="_blank">备案号：粤ICP备19029899号</a>
                 </div>
             </el-col>
         </el-row>

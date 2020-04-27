@@ -19,6 +19,11 @@ export const defaultMenu = [
         ]
     },
     {
+        showName: 'css技巧', css: '',child: [
+                {showName: 'css文字超出省虐号', url: '/ellipsisExceed'}
+            ]
+    },
+    {
         showName: "node服务测试",
         css: "el-icon-circle-check-outline",
         child: [{showName: "增删改查", url: "/serverTest"}]
@@ -103,12 +108,19 @@ const routeFile = [
         component: () => {
             return import('@/page/sortTest.vue')
         }
-    },{
+    },
+    {
         path:'/questionList',
         component: () => {
             return import('@/page/questionList.vue')
         }
-    }
+    },
+    {
+        path:'/ellipsisExceed',
+        component: () => {
+            return import('@/page/ellipsisExceed')
+        }
+    },
 ]
 
 export default routeFile
