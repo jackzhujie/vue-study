@@ -15,6 +15,7 @@ export const defaultMenu = [
             {showName: "递归遍历", url: '/recursiveList'},
             {showName: "ES6学习", url: '/es6Test'},
             {showName:"各种排序测试",url:'/sortTest'},
+            {showName:"reduce函数用法",url:'/reduceUse'},
             {showName:"前端算法集合",url:'/questionList'}
         ]
     },
@@ -119,6 +120,12 @@ const routeFile = [
         path:'/ellipsisExceed',
         component: () => {
             return import('@/page/ellipsisExceed')
+        }
+    },
+    {
+        path:'/reduceUse',
+        component: () => {
+            return import('@/page/reduceUse')
         }
     },
 ]
