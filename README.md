@@ -1,9 +1,9 @@
-# vue-cli + vue2.0 + vuex + vue-route + axios + element-ui
+# vue-cli + vue2.0 + vuex + vue-router + axios + element-ui
 
 > 项目功能说明:
 
  1. 采用了vue-cli搭建
- 2. 使用了vue-route来实现路由，实现单页面应用
+ 2. 使用了vue-router来实现路由，实现单页面应用
  3. 使用vuex做状态管理工具
  4. axios做请求工具
  5. element-ui做ui框架。
