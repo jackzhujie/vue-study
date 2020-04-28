@@ -1,6 +1,6 @@
 <template>
     <div id="app" v-loading.fullscreen.lock="isLoading">                   <!--所有的东西都挂载在id为app的节点下-->
-        <router-view></router-view>
+      <router-view></router-view>
     </div>
 </template>
 

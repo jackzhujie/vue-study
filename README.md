@@ -1,4 +1,4 @@
-# vue-cli + vue2.0 + vuex + vue-router + axios + element-ui
+# vue-cli4 + vue2.6 + vuex + vue-router + axios + element-ui
 
 > 项目功能说明:
 
@@ -17,7 +17,7 @@
     /*用cnpm安装依赖*/
     cnpm install
     /* 项目启动 */
-    npm run dev
+    npm run serve
     /* 打包 */
     npm run build
 ```

@@ -21,7 +21,8 @@ export const defaultMenu = [
     },
     {
         showName: 'css技巧', css: '',child: [
-                {showName: 'css文字超出省虐号', url: '/ellipsisExceed'}
+                {showName: 'css文字超出省虐号', url: '/ellipsisExceed'},
+                {showName: 'css雪碧图', url: '/cssSprites'},
             ]
     },
     {
@@ -34,98 +35,97 @@ export const defaultMenu = [
 //路由文件
 const routeFile = [
     {
-        path: '*',
-        name: 'test1',
-        component: () => {
-            return import('@/page/componentStudy')
-        }
-    },
-    {
         path: '/test2',
         name: 'test2',
         component: () => {
-            return import('@/page/testPage2')
+            return import('@/views/testPage2')
         }
     },
     {
         path: '/baseStudy',
         name: '基础学习',
         component: () => {
-            return import('@/page/baseStudy')
+            return import('@/views/baseStudy')
         }
     },
     {
         path: '/componentStudy',
         name: '组件教程',
         component:() => {
-            return import('@/page/componentStudy')
+            return import('@/views/componentStudy')
         }
     },
     {
         path: '/vueDirective',
         name: '自定义指令教程',
         component: () => {
-            return import('@/page/vuedirective')
+            return import('@/views/vueDirective')
         }
     },
     {
         path: '/pageTest',
         name: '分页组件测试',
         component: () => {
-            return import('@/page/pageComponentsTest')
+            return import('@/views/pageComponentsTest')
         }
     },
     {
         path: '/mapToArrayTest',
         name: 'map代替array避免遍历',
         component: () => {
-            return import('@/page/mapToArrayTest')
+            return import('@/views/mapToArrayTest')
         }
     },
     {
         path: '/selectRepeat',
         component: () => {
-            return import('@/page/selectRepeat')
+            return import('@/views/selectRepeat')
         }
     },
     {
         path: '/serverTest',
         component:() =>  {
-            return import('@/page/serverTest')
+            return import('@/views/serverTest')
         }
     },
     {
         path: "/recursiveList",
         component:() => {
-            return import('@/page/recursiveList')
+            return import('@/views/recursiveList')
         }
     }, {
         path: "/es6Test",
         component: () => {
-            return import('@/page/es6Test')
+            return import('@/views/es6Test')
         }
     }, {
         path: "/sortTest",
         component: () => {
-            return import('@/page/sortTest.vue')
+            return import('@/views/sortTest.vue')
         }
     },
     {
         path:'/questionList',
         component: () => {
-            return import('@/page/questionList.vue')
+            return import('@/views/questionList.vue')
         }
     },
     {
         path:'/ellipsisExceed',
         component: () => {
-            return import('@/page/ellipsisExceed')
+            return import('@/views/ellipsisExceed')
         }
     },
     {
         path:'/reduceUse',
         component: () => {
-            return import('@/page/reduceUse')
+            return import('@/views/reduceUse')
+        }
+    },
+    {
+        path:'/cssSprites',
+        component: () => {
+            return import('@/views/cssSprites')
         }
     },
 ]

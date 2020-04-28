@@ -2,10 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
-import router from './router/router.js'
+import router from './router/router'
 import axios from 'axios'
 import Vuex from 'vuex'     //状态管理工具
-import stores from './vuex/store'  //引入vuex的状态仓库
+import store from './vuex/store'  //引入vuex的状态仓库
 import NProgress from 'nprogress'    //页面顶部加载条和样式
 import 'nprogress/nprogress.css'
 
@@ -24,7 +24,8 @@ import constantsMap from './assets/util/constant'   //项目内使用到的常�
 import vueUtil from './assets/util/vue-util'   //项目内使用到的常量
 
 let baseURL = ''
-if (process.env.NODE_ENV == 'development') {      //这里配置项目开发和上线后的baseURL
+console.log(process.env.NODE_ENV, 'env')
+if (process.env.NODE_ENV === 'development') {      //这里配置项目开发和上线后的baseURL
   baseURL = 'http://127.0.0.1:3300/'
 } else {
   baseURL = 'http://67.218.157.95:3300'
@@ -50,7 +51,7 @@ axios.interceptors.request.use(function (config) {
   //   return
   // }
   stores.commit('setShowLoading',true)
-  if (config.method == 'post') {   //post请求进行添加分页参数
+  if (config.method === 'post') {   //post请求进行添加分页参数
     if (!config.data) {
       config.data = {}
     }
@@ -79,9 +80,9 @@ axios.interceptors.response.use((response) => {
 //路由拦截
 router.beforeEach((to, from, next) => {              //路由跳转时，添加进度条
   //处理页面位置
-    if(to.fullPath === '/'){
-        router.push('/baseStudy')
-    }
+	if(to.fullPath === '/'){
+		router.push('/baseStudy')
+	}
   // if(to.name != 'login' && !commonUtil.getCookie('login')){
   //   // Vue.showAlert('未登录，已经调整到首页')
   //   router.push('/login')
@@ -108,10 +109,8 @@ Vue.use(vueUtil)
 Vue.config.productionTip = true
 
 /* eslint-disable no-new */
-const vm = new Vue({
-  el: '#app',
-  router,
-  store:stores,
-  template: '<App/>',
-  components: {App}
-})
+new Vue({
+	router,
+	store,
+	render: h => h(App)
+}).$mount('#app');
