@@ -50,7 +50,7 @@ axios.interceptors.request.use(function (config) {
   //   router.push('/login')
   //   return
   // }
-  stores.commit('setShowLoading',true)
+	store.commit('setShowLoading',true)
   if (config.method === 'post') {   //post请求进行添加分页参数
     if (!config.data) {
       config.data = {}
@@ -64,16 +64,16 @@ axios.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
   return config;
 }, function (error) {
-  stores.commit('setShowLoading',false)
+	store.commit('setShowLoading',false)
   // 对请求错误做些什么
   return Promise.reject(error);
 });
 
 axios.interceptors.response.use((response) => {
-  stores.commit('setShowLoading',false)
+	store.commit('setShowLoading',false)
   return response
 },(err)=>{
-  stores.commit('setShowLoading',false)
+	store.commit('setShowLoading',false)
   return Promise.reject(err)
 });
 
