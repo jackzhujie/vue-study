@@ -4,9 +4,11 @@
 
 # 打包
 npm run build
-# 切换分支
+# 先删除原来的远程分支
 git push origin gh-pages --delete
+# 删除本地分支
 git branch -d gh-pages
+# 切换分支并新建分支
 git checkout -b gh-pages
 # 添加dist目录
 git add -f dist
