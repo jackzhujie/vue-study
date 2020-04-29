@@ -16,7 +16,8 @@ export const defaultMenu = [
 			{showName: "ES6学习", url: '/es6Test'},
 			{showName: "各种排序测试", url: '/sortTest'},
 			{showName: "reduce函数用法", url: '/reduceUse'},
-			{showName: "前端算法集合", url: '/questionList'}
+			{showName: "前端算法集合", url: '/questionList'},
+			{showName: "js异步代码示例", url: '/asyncTest'}
 		]
 	},
 	{
@@ -126,6 +127,12 @@ const routeFile = [
 		path: '/cssSprites',
 		component: () => {
 			return import('@/views/cssSprites')
+		}
+	},
+	{
+		path: '/asyncTest',
+		component: () => {
+			return import('@/views/asyncTest')
 		}
 	},
 ]
