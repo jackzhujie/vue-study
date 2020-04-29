@@ -6,6 +6,7 @@
 npm run build
 # 切换分支
 git checkout gh-pages
+git branch --set-upstream-to=origin/gh-pages
 # 添加dist目录
 git add -f dist
 git commit -m 'deploy'
