@@ -24,6 +24,7 @@ export const defaultMenu = [
 		showName: 'css技巧', css: '', child: [
 			{showName: 'css文字超出省虐号', url: '/ellipsisExceed'},
 			{showName: 'css雪碧图', url: '/cssSprites'},
+			{showName: 'css动画实现', url: '/animateTest'},
 		]
 	},
 	{
@@ -133,6 +134,12 @@ const routeFile = [
 		path: '/asyncTest',
 		component: () => {
 			return import('@/views/asyncTest')
+		}
+	},
+	{
+		path: '/animateTest',
+		component: () => {
+			return import('@/views/animateTest')
 		}
 	},
 ]

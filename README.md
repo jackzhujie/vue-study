@@ -22,7 +22,8 @@
     npm run build
 ```
 `node-sass`能容易安装失败，可以参照(这个)[https://segmentfault.com/a/1190000010984731] 来安装。
-    
+ ##### 可以关注我的个人公众号，获取更多学习资料
+![公众号](http://img.aizhifou.cn/qrcode_8.jpg)
     
 
 
