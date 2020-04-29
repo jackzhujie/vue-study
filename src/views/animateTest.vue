@@ -7,7 +7,7 @@
       <h5 class="title">transition配合transform一起使用</h5>
       <div class="base base2"></div>
       <h5 class="title">animate自定义动画</h5>
-      <div class="base base3"></div>
+      <div class="base base3 active"></div>
   </div>
 </template>
 
@@ -73,7 +73,7 @@
                   #ccffff,
                   #ffcccc
           );
-          &:hover {
+          &.active {
               animation-name: bounce;
               animation-duration: 3s;
               animation-iteration-count: infinite;
