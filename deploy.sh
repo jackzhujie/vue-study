@@ -5,10 +5,9 @@
 # 打包
 npm run build
 # 切换分支
-git checkout gh-pages
-git fetch origin
-git reset --hard origin/gh-pages
-git pull --rebase
+git push origin gh-pages --delete
+git branch -d gh-pages
+git checkout -b gh-pages
 # 添加dist目录
 git add -f dist
 git commit -m 'deploy'
