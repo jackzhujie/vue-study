@@ -16,9 +16,7 @@
         name: "animateTest",
         components: {},
         data() {
-            return {
-
-            }
+            return {}
         },
         methods: {
 
