@@ -14,6 +14,7 @@
     "echarts": "^4.2.0-rc.2",
     "element-ui": "^2.0.11",
     "jquery": "^3.2.1",
+    "lib-flexible": "^0.3.2",
     "mavon-editor": "^2.6.17",
     "moment": "^2.24.0",
     "nprogress": "^0.2.0",

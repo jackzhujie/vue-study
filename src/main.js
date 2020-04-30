@@ -8,7 +8,7 @@ import Vuex from 'vuex'     //状态管理工具
 import store from './vuex/store'  //引入vuex的状态仓库
 import NProgress from 'nprogress'    //页面顶部加载条和样式
 import 'nprogress/nprogress.css'
-
+import 'lib-flexible/flexible'
 
 const commonUtil = require('./assets/util/common')
 
