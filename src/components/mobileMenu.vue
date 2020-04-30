@@ -28,11 +28,12 @@
             },
 			toHome() {
 				this.$store.commit('setIsShowMenu', false)
-				this.$router.push('/')
+				this.$router.push('/baseStudy')
             }
         },
         watch: {
 			isShowMenu(val) {
+				console.log(val, 'val')
 				if (val) {
 					document.getElementsByTagName("body")[0].style.overflow="hidden";
                 } else {
