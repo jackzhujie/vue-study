@@ -45,54 +45,11 @@
               </span>
         </el-dialog>
         <page-component :page-config="pageConfig" @changeCurrentPage="changeCurrentPage"></page-component>
-
-        <div class="scroll_test" v-show="false">
-            <div class="left">
-                <a class="floor_list" @click="changeSelect(key,item.floorId)"
-                   v-for="(item,key) in testList" :key="key" :class="{active:selectIndex === key}">{{item.floorId +
-                    'F'}}</a>
-            </div>
-            <div class="right" style="position: relative">
-                <div class="floor_name_fixed">
-                    {{testList[this.selectIndex].floorId}}
-                </div>
-                <div class="room_content" :id="item.floorId" :class="{'scroll_in_content':selectIndex === key}" v-for="(item,key) in testList" :key="key">
-                    <div class="floor_name">{{item.floorId}}</div>
-                    <div class="room_list">
-                        <div class="room_item" v-for="(room,index) in item.roomList" :key="index">
-                            {{room.area}}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
 </template>
 
 <script>
     import pageComponent from "../components/pageComponent"
-
-    const ScrollTop = (number = 0, time) => {
-        if (!time) {
-            document.getElementsByClassName("right")[0].scrollTop = number;
-            return number;
-        }
-        const spacingTime = 10; // 设置循环的间隔时间  值越小消耗性能越高
-        let spacingIndex = time / spacingTime; // 计算循环的次数
-        // let nowTop = document.body.scrollTop + document.documentElement.scrollTop; // 获取当前滚动条位置
-        let nowTop = document.getElementsByClassName("right")[0].scrollTop // 获取当前滚动条位置
-        let everTop = (number - nowTop) / spacingIndex; // 计算每次滑动的距离
-        let scrollTimer = setInterval(() => {
-            if (spacingIndex > 0) {
-                spacingIndex--;
-                ScrollTop(nowTop += everTop);
-            } else {
-                clearInterval(scrollTimer); // 清除计时器
-            }
-        }, spacingTime);
-    };
-
 
     export default {
         name: "serverTest",
@@ -100,86 +57,6 @@
             return {
                 userList: [],
                 selectIndex: 0,
-                testList: [
-                    {
-                        floorId: 1,
-                        roomList: [
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                        ]
-                    },
-                    {
-                        floorId: 2,
-                        roomList: [
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                        ]
-                    },
-                    {
-                        floorId: 3,
-                        roomList: [
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                        ]
-                    },
-                    {
-                        floorId: 4,
-                        roomList: [
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                        ]
-                    },
-                    {
-                        floorId: 5,
-                        roomList: [
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                        ]
-                    },
-                    {
-                        floorId: 6,
-                        roomList: [
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                            {id: 1, area: 40, height: 5},
-                        ]
-                    }
-                ],
                 activeIndex2: '1',
                 operateDialog: false,
                 userModel: {},
@@ -192,34 +69,9 @@
         },
         components: {'page-component': pageComponent},
         mounted(){
-            return
-            document.getElementsByClassName("right")[0].addEventListener("scroll",()=> {
-                console.log(this.selectIndex,'a')
-                const scrollTop = document.getElementsByClassName("right")[0].scrollTop
-                const upDome = this.selectIndex === 5 ? 0 : document.getElementById(this.testList[this.selectIndex + 1].floorId).offsetTop
-                const downDome = this.selectIndex === 0 ? 0 : document.getElementById(this.testList[this.selectIndex - 1].floorId).offsetTop
-                if(scrollTop <= downDome){
-                    this.selectIndex = this.selectIndex === 0 ? 0 : this.selectIndex - 1
-                }else if(upDome <= scrollTop){
-                    this.selectIndex = this.selectIndex === 5 ? 5 : this.selectIndex + 1
-                    console.log(this.selectIndex,'selectIndex')
-                }
-            })
+
         },
         methods: {
-            changeSelect(index,id) {
-                // this.selectIndex = index
-                const rightDome = document.getElementsByClassName("right")[0]
-                const selectDome = document.getElementById(id)
-                console.log(rightDome.scrollTop, selectDome.offsetTop,rightDome.offsetTop,rightDome.scrollTop + selectDome.offsetTop - rightDome.offsetTop)
-                this.$nextTick(() => {
-                    // ScrollTop(rightDome.scrollTop + selectDome.offsetTop - rightDome.offsetTop,1000)
-                    ScrollTop(selectDome.offsetTop,520)
-                    // $('.right').animate({
-                    //     scrollTop: $(".right").scrollTop() + $('#' + id).offset().top - $('.' + 'right').offset().top
-                    // }, 1000);
-                })
-            },
             //delete
             delData(row) {
                 this.$confirm('此操作将永久删除该用户？, 是否继续?', '提示', {
@@ -257,7 +109,7 @@
                     }
                     this.operateDialog = false
                 }
-                if (this.operateType == 'add') {
+                if (this.operateType === 'add') {
                     this.$post('/users/add', this.userModel, successCallBack)
                 } else {
                     this.$put('/users/update', this.userModel, successCallBack)
