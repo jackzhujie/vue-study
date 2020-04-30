@@ -9,7 +9,7 @@ export const defaultMenu = [
 		]
 	},
 	{
-		showName: 'js技巧', css: 'el-icon-circle-check-outline', child: [
+		showName: 'js技巧', css: 'el-icon-star-off', child: [
 			{showName: 'map代替array避免遍历', url: '/mapToArrayTest'},
 			{showName: '多个下拉去重', url: '/selectRepeat'},
 			{showName: "递归遍历", url: '/recursiveList'},
@@ -21,15 +21,16 @@ export const defaultMenu = [
 		]
 	},
 	{
-		showName: 'css技巧', css: '', child: [
+		showName: 'css技巧', css: 'el-icon-goods', child: [
 			{showName: 'css文字超出省虐号', url: '/ellipsisExceed'},
 			{showName: 'css雪碧图', url: '/cssSprites'},
 			{showName: 'css动画实现', url: '/animateTest'},
+			{showName: 'css实现三角形', url: '/triangleTest'},
 		]
 	},
 	{
 		showName: "node服务测试",
-		css: "el-icon-circle-check-outline",
+		css: "el-icon-service",
 		child: [{showName: "增删改查", url: "/serverTest"}]
 	},
 ]
@@ -140,6 +141,12 @@ const routeFile = [
 		path: '/animateTest',
 		component: () => {
 			return import('@/views/animateTest')
+		}
+	},
+	{
+		path: '/triangleTest',
+		component: () => {
+			return import('@/views/triangleTest')
 		}
 	},
 ]
