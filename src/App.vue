@@ -5,7 +5,9 @@
 </template>
 
 <script>
-    export default {
+    import {isMobile} from "./assets/util/common";
+
+	export default {
         name: 'app',
         data() {
             return {
@@ -21,7 +23,8 @@
 
         },
         created: function () {
-
+            // 判断是否是移动端
+			this.$store.commit('setIsMobile', isMobile())
         }
     }
 </script>
@@ -37,7 +40,7 @@
         font-smoothing: antialiased;
         color: #2c3e50;
         margin: 0 auto;
-        padding: 0 20px;
         max-width: 1920px;
+        width: 100%;
     }
 </style>

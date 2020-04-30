@@ -1,28 +1,13 @@
 <template>
     <!--布局路由，所有页面都嵌入这个路由页面-->
-    <div class="layout">
-        <el-row :gutter="20">
-            <el-col :span="4">
-                <!--菜单-->
-                <el-menu
-                        :default-active="activeIndex"
-                        @select="handleSelect"
-                        class="el-menu-vertical-demo">
-                    <el-submenu :index="index + ''" v-for="(item,index) in menuList" :key="index">
-                        <template slot="title">   <!--组件插值，slot意思是把下面的html插到组件里面对应的地方-->
-                            <i :class="item.css"></i>
-                            <span v-text="item.showName"></span>
-                        </template>
-                        <el-menu-item-group>
-                            <el-menu-item :index="index + '-' + subIndex" v-for="(subItem,subIndex) in item.child"
-                                          :key="subIndex">
-                                <router-link :to="{path:subItem.url}" v-text="subItem.showName"></router-link>
-                            </el-menu-item>
-                        </el-menu-item-group>
-                    </el-submenu>
-                </el-menu>
+    <div class="layout" :class="{'is-Mobile': isMobile}">
+<!--        移动端菜单-->
+        <mobile-menu v-if="isMobile"></mobile-menu>
+        <el-row>
+            <el-col :span="4" v-if="!isMobile">
+                <my-menu></my-menu>
             </el-col>
-            <el-col :span="20">
+            <el-col class="main-content" :span="isMobile ? 24 : 20">
                 <router-view></router-view>    <!--单页面应用，所有的内容在这个节点切换-->
                 <div class="info">
                     <a href="http://www.beian.miit.gov.cn/" target="_blank">备案号：粤ICP备19029899号</a>
@@ -33,23 +18,21 @@
 </template>
 
 <script>
-    import {defaultMenu} from "../router/menuRouter"
+    import myMenu from "../components/myMenu";
+    import mobileMenu from "../components/mobileMenu";
     export default {
         name: "layout",
         data() {
             return {
-                menuList: defaultMenu,
-                routeData: []
             }
         },
+		components: {myMenu,mobileMenu},
         methods: {
-            handleSelect: function (key, keyPath) {
-                this.$store.commit('setMenuPosition', keyPath[1])     //这里存在菜单位置
-            }
+
         },
         computed: {
-            activeIndex: function () {              //从vuex获取数据
-                return this.$store.state.menuPosition[0]
+			isMobile() {
+				return this.$store.state.isMobile
             }
         }
     }
@@ -57,9 +40,18 @@
 
 <style lang="scss">
     .layout {
+        &.is-Mobile {
+            .main-content {
+                padding: 60px 10px 20px 10px;
+            }
+        }
+        .main-content {
+            padding: 20px;
+        }
         .info{
             position: fixed;
             bottom:0;
+            background-color: white;
             text-align: center;
             left: 0;
             right: 0;

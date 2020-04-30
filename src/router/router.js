@@ -61,6 +61,4 @@ const baseRoute = [
 
 router.addRoutes(baseRoute)
 
-console.log(router, 'route')
-
 export default router
