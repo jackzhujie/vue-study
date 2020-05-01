@@ -27,7 +27,7 @@ let baseURL = ''
 if (process.env.NODE_ENV === 'development') {      //这里配置项目开发和上线后的baseURL
   baseURL = 'http://203.195.156.57:3000/api'
 } else {
-  baseURL = 'http://127.0.0.1:3300/api'
+  baseURL = 'http://203.195.156.57:3000/api'
 }
 
 import mavonEditor from 'mavon-editor'
