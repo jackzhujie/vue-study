@@ -9,7 +9,7 @@ git push origin gh-pages --delete
 # 删除本地分支
 git branch -d gh-pages
 # 切换分支并新建分支
-git checkout gh-pages
+git checkout -b gh-pages
 # 添加dist目录
 git add -f dist
 git commit -m 'deploy'
