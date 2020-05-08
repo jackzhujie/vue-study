@@ -9,6 +9,7 @@ import store from './vuex/store'  //引入vuex的状态仓库
 import NProgress from 'nprogress'    //页面顶部加载条和样式
 import 'nprogress/nprogress.css'
 import 'lib-flexible/flexible'
+import directive from "./assets/util/directive";
 
 const commonUtil = require('./assets/util/common')
 
@@ -22,6 +23,7 @@ const baseConfig = require('./assets/util/baseConfig')
 
 import constantsMap from './assets/util/constant'   //项目内使用到的常量
 import vueUtil from './assets/util/vue-util'   //项目内使用到的常量
+Vue.use(directive)
 
 let baseURL = ''
 if (process.env.NODE_ENV === 'development') {      //这里配置项目开发和上线后的baseURL
