@@ -5,6 +5,7 @@ import layout from '@/views/layout'
 import resume from '@/views/resume'
 import testPage1 from '@/views/testPage1'
 import createResume from "@/views/createResume"
+import test from "@/views/test"
 
 import {defaultMenu} from "./menuRouter";
 import routeFile from "./menuRouter"
@@ -33,6 +34,11 @@ const router = new Router({
 			path: '/createResume',
 			name: 'createResume',
 			component: createResume
+		},
+		{
+			path: '/test',
+			name: 'test',
+			component: test
 		}
 	]
 })
