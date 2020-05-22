@@ -5,7 +5,7 @@
         <my-list :data-list="dataList" ref="myList" :click-fun="clickFunction" @deleteItem="removeItem">
           <template slot="title" slot-scope="{item,index}">
             <div>
-              <span v-text="`${index + 1}.`" style="font-weight: bold"></span>
+              <span v-text="'插槽：标题'" style="font-weight: bold"></span>
               <span v-text="item.title"></span>
             </div>
           </template>
@@ -25,9 +25,9 @@
     data: function () {
         return {
           dataList:[
-            {title:'携手打造更加紧密的中非命运共同体',content:'9月3日，2018年中非合作论...'},
-            {title:'“小眼镜”牵动大情怀',content:'近日，习近平总书记就青少年视力健...'},
-            {title:'倡议五周年之际',content:'2013年9月7日，国家主席习...'},
+            {title:'标题1',content:'内容一'},
+            {title:'标题2',content:'内容二'},
+            {title:'标题3',content:'内容三'},
           ]
         }
     },

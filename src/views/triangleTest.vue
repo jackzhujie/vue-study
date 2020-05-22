@@ -37,8 +37,8 @@
             width: 0;
             height: 0;
             &.up {
-                border-left: 50px solid transparent;
-                border-right: 50px solid transparent;
+                border-left: 0px solid transparent;
+                border-right: 40px solid transparent;
                 border-bottom: 100px solid red;
                 border-top: 0;
             }
