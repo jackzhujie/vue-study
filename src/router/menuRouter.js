@@ -17,7 +17,8 @@ export const defaultMenu = [
 			{showName: "各种排序测试", url: '/sortTest'},
 			{showName: "reduce函数用法", url: '/reduceUse'},
 			{showName: "前端算法集合", url: '/questionList'},
-			{showName: "js异步代码示例", url: '/asyncTest'}
+			{showName: "js异步代码示例", url: '/asyncTest'},
+			{showName: "ws测试", url: '/wsTest'}
 		]
 	},
 	{
@@ -147,6 +148,12 @@ const routeFile = [
 		path: '/triangleTest',
 		component: () => {
 			return import('@/views/triangleTest')
+		}
+	},
+	{
+		path: '/wsTest',
+		component: () => {
+			return import('@/views/wsTest')
 		}
 	},
 ]
