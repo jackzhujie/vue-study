@@ -42,7 +42,7 @@
         },
         computed: {},
         created: function () {
-          this.ws = new WebSocket("ws://localhost:30002");
+          this.ws = new WebSocket("ws://203.195.156.57:30002");
           this.ws.addEventListener('open', () => {
             this.ws.send(JSON.stringify({type: 'connection'}));
           })
@@ -56,6 +56,16 @@
             else {
               this.userCount = msg
             }
+          })
+          this.ws.addEventListener('error', (a, b) => {
+              alert(JSON.stringify(a, ["message", "arguments", "type", "name"]))
+              // alert(JSON.stringify(b))
+              console.log(arguments, 'arg')
+          })
+
+          window.addEventListener('error', function (a, b) {
+            alert(JSON.stringify(a))
+            alert(JSON.stringify(b))
           })
         }
     }

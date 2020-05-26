@@ -26,9 +26,7 @@ class WsTest {
 		};
 		// 事件onmessage，指接收到服务端消息
 		this.ws.onmessage = (evt) => {
-			console.log(evt.data, 'data')
 			const {type, msg} = JSON.parse(evt.data);
-			console.log('消息类型：' + type, '用户id：' + msg)
 			// 方法，关闭连接
 			this.ws.close()
 			console.log(this.ws.readyState, readyStateMap[this.ws.readyState])
@@ -43,4 +41,4 @@ class WsTest {
 		};
 	}
 }
-const ws = new WsTest('ws://127.0.0.1:30002')
+const ws = new WsTest('ws://203.195.156.57:30002')
