@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import login from '../views/login'
-import layout from '@/views/layout'
-import resume from '@/views/resume'
-import testPage1 from '@/views/testPage1'
-import createResume from "@/views/createResume"
-import test from "@/views/test"
+const login = () => import('../views/login')
+const layout = () => import('@/views/layout')
+const resume = () => import('@/views/resume')
+const testPage1 = () => import('@/views/testPage1')
+const createResume = () => import('@/views/createResume')
+const test = () => import('@/views/test')
 
 import {defaultMenu} from "./menuRouter";
 import routeFile from "./menuRouter"
