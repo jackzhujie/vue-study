@@ -11,6 +11,7 @@ const productionGzipExtensions = /\.(js|css|json|txt|html|ico|svg)(\?.*)?$/i;
 module.exports = {
 	publicPath: './',  //输出的根路径  默认是/ 如果你的网站是app.com/vue 这更改此配置项
 	configureWebpack: config => {
+		// 启用压缩
 		const plugins = [];
 		if (IS_PROD) {
 			plugins.push(
@@ -33,7 +34,7 @@ module.exports = {
 			);
 		}
 		config.plugins = [...config.plugins, ...plugins];
-
+		// 启用cdn加速
 		config.externals = {
 			vue: "Vue",
 			"element-ui": "ELEMENT",
@@ -80,5 +81,28 @@ module.exports = {
 			.set('assets', resolve('src/assets'))
 			.set('components', resolve('src/components'))
 			.set('views', resolve('src/views'))
+	},
+	// 跨域配置
+	devServer: {
+		// overlay: { // 让浏览器 overlay 同时显示警告和错误
+		//   warnings: true,
+		//   errors: true
+		// },
+		// open: false, // 是否打开浏览器
+		// host: "localhost",
+		// port: "8080", // 代理断就
+		// https: false,
+		// hotOnly: false, // 热更新
+		proxy: {
+			"/api": {
+				target: "http://203.195.156.57:3000/api", // 目标代理接口地址
+				secure: false,
+				changeOrigin: true, // 开启代理，在本地创建一个虚拟服务端
+				// ws: true, // 是否启用websockets
+				pathRewrite: {
+					"^/api": "/"
+				}
+			}
+		}
 	}
 }
