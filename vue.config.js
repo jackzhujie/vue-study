@@ -95,10 +95,15 @@ module.exports = {
 		// hotOnly: false, // 热更新
 		proxy: {
 			"/api": {
-				target: "http://203.195.156.57:3000/api", // 目标代理接口地址
+				// 目标代理接口地址
+				target: "http://203.195.156.57:3000/api",
+				// 如果是https接口，需要配置这个参数
 				secure: false,
-				changeOrigin: true, // 开启代理，在本地创建一个虚拟服务端
-				// ws: true, // 是否启用websockets
+				// 开启代理，在本地创建一个虚拟服务端
+				changeOrigin: true,
+				// 是否启用websockets
+				ws: false,
+				//重写路径 比如'/api/a/b'重写为'/aaa/ccc'
 				pathRewrite: {
 					"^/api": "/"
 				}
