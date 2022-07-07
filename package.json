@@ -16,7 +16,7 @@
     "jquery": "^3.2.1",
     "lib-flexible": "^0.3.2",
     "mavon-editor": "^2.6.17",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "nprogress": "^0.2.0",
     "register-service-worker": "^1.7.1",
     "vue": "^2.6.11",
