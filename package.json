@@ -32,7 +32,7 @@
     "@vue/cli-plugin-pwa": "~4.3.0",
     "@vue/cli-plugin-router": "~4.3.0",
     "@vue/cli-plugin-vuex": "~4.3.0",
-    "@vue/cli-service": "~4.3.0",
+    "@vue/cli-service": "~5.0.8",
     "brotli-webpack-plugin": "^1.1.0",
     "compression-webpack-plugin": "^4.0.0",
     "node-sass": "^4.12.0",
